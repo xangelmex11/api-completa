@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Mercado - Documentación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">API Mercado</a>
+        </div>
+    </nav>
+
+    <!-- Introducción -->
+    <div class="bg-light text-dark text-center py-5">
+        <h1 class="display-4">Bienvenido a la API del Mercado</h1>
+        <p class="lead">Facilita la gestión de proveedores y productos mediante endpoints RESTful.</p>
+    </div>
+
+    <!-- URL Base -->
+    <div class="bg-light text-center py-4">
+        <h2 class="text-dark">URL Base de la API</h2>
+        <p class="fs-4 fw-bold text-primary">
+            <a href="https://api-mercado-2.onrender.com" target="_blank" class="text-decoration-none">https://api-mercado-2.onrender.com</a>
+        </p>
+        <p class="text-muted">Utiliza esta URL base para acceder a los endpoints de la API.</p>
+    </div>
+
+    <!-- Documentación de Endpoints -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Documentación de Endpoints</h2>
+        <div class="accordion" id="apiDocs">
+            <!-- Proveedores -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingProveedoresDoc">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProveedoresDoc" aria-expanded="false" aria-controls="collapseProveedoresDoc">
+                        Gestión de Proveedores
+                    </button>
+                </h2>
+                <div id="collapseProveedoresDoc" class="accordion-collapse collapse" aria-labelledby="headingProveedoresDoc" data-bs-parent="#apiDocs">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>
+                                <strong>GET /proveedores</strong><br>
+                                Devuelve un proveedor aleatorio de la base de datos.
+                                <br><strong>Ejemplo de respuesta:</strong>
+                                <pre><code>{
+    "proveedor": {
+        "ProveedorID": 1,
+        "Nombre": "Proveedor Ejemplo",
+        "Telefono": "123456789",
+        "Correo": "ejemplo@proveedor.com",
+        "Direccion": "Calle Ejemplo, Ciudad"
+    }
+}</code></pre>
+                            </li>
+                            <li>
+                                <strong>GET /proveedores/buscar/&lt;nombre&gt;</strong><br>
+                                Busca proveedores que coincidan con el nombre proporcionado.
+                                <br><strong>Ejemplo de respuesta:</strong>
+                                <pre><code>{
+    "proveedores": [
+        {
+            "ProveedorID": 1,
+            "Nombre": "Proveedor Ejemplo",
+            "Telefono": "123456789",
+            "Correo": "ejemplo@proveedor.com",
+            "Direccion": "Calle Ejemplo, Ciudad"
+        }
+    ],
+    "mensaje": "Proveedores encontrados"
+}</code></pre>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingProductosDoc">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProductosDoc" aria-expanded="false" aria-controls="collapseProductosDoc">
+                        Gestión de Productos
+                    </button>
+                </h2>
+                <div id="collapseProductosDoc" class="accordion-collapse collapse" aria-labelledby="headingProductosDoc" data-bs-parent="#apiDocs">
+                    <div class="accordion-body">
+                        <ul>
+                            <li>
+                                <strong>GET /productos</strong><br>
+                                Devuelve un producto aleatorio de la base de datos.
+                                <br><strong>Ejemplo de respuesta:</strong>
+                                <pre><code>{
+    "producto": {
+        "ProductoID": 10,
+        "Nombre": "Manzanas",
+        "Categoria": "Frutas",
+        "Precio": 25.50,
+        "UnidadMedida": "kg",
+        "Cantidad": 100,
+        "Disponible": true,
+        "FechaAgregado": "2024-01-01",
+        "Proveedor": "Proveedor Ejemplo"
+    }
+}</code></pre>
+                            </li>
+                            <li>
+                                <strong>GET /productos/buscar/&lt;nombre&gt;</strong><br>
+                                Busca productos que coincidan con el nombre proporcionado.
+                                <br><strong>Ejemplo de respuesta:</strong>
+                                <pre><code>{
+    "productos": [
+        {
+            "ProductoID": 10,
+            "Nombre": "Manzanas",
+            "Categoria": "Frutas",
+            "Precio": 25.50,
+            "UnidadMedida": "kg",
+            "Cantidad": 100,
+            "Disponible": true,
+            "FechaAgregado": "2024-01-01",
+            "Proveedor": "Proveedor Ejemplo"
+        }
+    ],
+    "mensaje": "Productos encontrados"
+}</code></pre>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proveedores y Productos -->
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Proveedores y Productos</h2>
+        <div class="accordion" id="accordionProveedoresProductos">
+            <!-- Proveedores -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingProveedores">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProveedores" aria-expanded="false" aria-controls="collapseProveedores">
+                        Proveedores
+                    </button>
+                </h2>
+                <div id="collapseProveedores" class="accordion-collapse collapse" aria-labelledby="headingProveedores" data-bs-parent="#accordionProveedoresProductos">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Agro Ayutla</li>
+                            <li class="list-group-item">Almacenes Antonio Guerrero</li>
+                            <li class="list-group-item">Equipartes Agrícolas</li>
+                            <li class="list-group-item">Agrícola Campos</li>
+                            <li class="list-group-item">Agro Ingeniería Guerrero</li>
+                            <li class="list-group-item">MEXIJAMAR</li>
+                            <li class="list-group-item">Miel de la Montaña Amuzga SPR de RI</li>
+                            <li class="list-group-item">Roberto S Mangos</li>
+                            <li class="list-group-item">Capimex Grupo Comercial</li>
+                            <li class="list-group-item">Casa Tapia Productos de Belleza</li>
+                            <li class="list-group-item">Lapsolite División Productos Químicos</li>
+                            <li class="list-group-item">Oper y Procesadora de Productos de Panificación</li>
+                            <li class="list-group-item">Productos de Calidad Albatros</li>
+                            <li class="list-group-item">Dulcería El Taponcito SA de CV</li>
+                            <li class="list-group-item">Pasteles Don Arturo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Productos -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingProductos">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
+                        Productos
+                    </button>
+                </h2>
+                <div id="collapseProductos" class="accordion-collapse collapse" aria-labelledby="headingProductos" data-bs-parent="#accordionProveedoresProductos">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">Fertilizante Orgánico</li>
+                            <li class="list-group-item">Semilla Maíz Híbrido</li>
+                            <li class="list-group-item">Tractor JD 5075E</li>
+                            <li class="list-group-item">Arado de Discos</li>
+                            <li class="list-group-item">Motocultor Honda</li>
+                            <li class="list-group-item">Bomba de Riego</li>
+                            <li class="list-group-item">Herbicida Glifosato</li>
+                            <li class="list-group-item">Insecticida Clorpirifos</li>
+                            <li class="list-group-item">Malla Antigranizo</li>
+                            <li class="list-group-item">Riego por Goteo</li>
+                            <li class="list-group-item">Miel de Abeja</li>
+                            <li class="list-group-item">Cera de Abeja</li>
+                            <li class="list-group-item">Mango Ataulfo</li>
+                            <li class="list-group-item">Papaya Maradol</li>
+                            <li class="list-group-item">Coco Seco</li>
+                            <li class="list-group-item">Aceite de Coco</li>
+                            <li class="list-group-item">Semilla Ajonjolí</li>
+                            <li class="list-group-item">Harina Ajonjolí</li>
+                            <li class="list-group-item">Abono Foliar</li>
+                            <li class="list-group-item">Regulador Crecimiento</li>
+                            <li class="list-group-item">Pala Recta</li>
+                            <li class="list-group-item">Rastrillo Agrícola</li>
+                            <li class="list-group-item">Leche de Cabra</li>
+                            <li class="list-group-item">Queso Artesanal</li>
+                            <li class="list-group-item">Semilla de Trigo</li>
+                            <li class="list-group-item">Harina Integral</li>
+                            <li class="list-group-item">Gallinas Ponedoras</li>
+                            <li class="list-group-item">Huevos Orgánicos</li>
+                            <li class="list-group-item">Tierra Negra</li>
+                            <li class="list-group-item">Composta Orgánica</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacto -->
+    <div class="container my-5 text-center">
+        <h2>Contacto</h2>
+        <p>Para más información o soporte, por favor contacta al administrador del sistema a través del correo <a href="mailto:apiwizards14@gmail.com">apiwizards14@gmail.com</a>.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>© 2024 API Mercado. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
